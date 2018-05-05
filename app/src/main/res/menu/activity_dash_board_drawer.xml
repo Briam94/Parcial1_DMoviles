@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/ventas"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="VENTAS" />
+        <item
+            android:id="@+id/registro"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="REGISTRAR CLIENTE" />
+        <item
+            android:id="@+id/reportes"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="REPORTES" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/cerrarsesion"
+                android:icon="@drawable/ic_menu_send"
+                android:title="CERRAR SESION" />
+        </menu>
+    </item>
+
+</menu>

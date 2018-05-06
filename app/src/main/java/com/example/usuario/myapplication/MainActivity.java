@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         Connect conexion = new Connect(this,"db_usuarios",null,1);
         Connect conn = new Connect(this,"db_ventas",null,1);
+        Connect con = new Connect(this,"db_clientes",null,1);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

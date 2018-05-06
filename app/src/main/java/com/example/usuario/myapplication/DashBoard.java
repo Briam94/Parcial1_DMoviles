@@ -86,7 +86,7 @@ public class DashBoard extends AppCompatActivity
             Intent i = new Intent(this,RegistroVentas.class);
             startActivity(i);
         } else if (id == R.id.registro) {
-            Intent i = new Intent(this,Registro.class);
+            Intent i = new Intent(this,RegistrarClientes.class);
             startActivity(i);
         } else if (id == R.id.reportes) {
 

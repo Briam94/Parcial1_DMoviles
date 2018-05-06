@@ -26,7 +26,8 @@ public class RegistroVentas extends AppCompatActivity {
         idVentas = (EditText) findViewById(R.id.campoIdVenta);
         cliente = (EditText) findViewById(R.id.campoCliente);
         producto = (EditText) findViewById(R.id.campoProducto);
-        tiempo = (EditText) findViewById(R.id.campoPrecio);
+        tiempo = (EditText) findViewById(R.id.campoTiempo);
+        precio = (EditText) findViewById(R.id.campoPrecio);
 
         btnRegistrarVentas = (Button) findViewById(R.id.botonVender);
         btnCancelarVentas = (Button) findViewById(R.id.botonCancelar);
@@ -35,6 +36,14 @@ public class RegistroVentas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 registrarVentas();
+            }
+        });
+
+        btnCancelarVentas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), DashBoard.class);
+                startActivity(i);
             }
         });
     }
@@ -48,8 +57,8 @@ public class RegistroVentas extends AppCompatActivity {
         values.put(Utilidades.CAMPO_IDVENTA,idVentas.getText().toString());
         values.put(Utilidades.CAMPO_CLIENTE,cliente.getText().toString());
         values.put(Utilidades.CAMPO_PRODUCTO,producto.getText().toString());
-        values.put(Utilidades.CAMPO_TIEMPO,producto.getText().toString());
-        values.put(Utilidades.CAMPO_PRECIO,tiempo.getText().toString());
+        values.put(Utilidades.CAMPO_TIEMPO,tiempo.getText().toString());
+        values.put(Utilidades.CAMPO_PRECIO,precio.getText().toString());
 
         Long idResultante = db.insert(Utilidades.TABLA_VENTA,Utilidades.CAMPO_PRODUCTO,values);
 

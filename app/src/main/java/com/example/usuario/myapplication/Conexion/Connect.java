@@ -18,6 +18,7 @@ public class Connect  extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(Utilidades.CREAR_TABLA_USUARIO);
         db.execSQL(Utilidades.CREAR_TABLA_VENTAS);
+        db.execSQL(Utilidades.CREAR_TABLA_CLIENTES);
 
     }
 
@@ -25,6 +26,7 @@ public class Connect  extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS usuarios");
         db.execSQL("DROP TABLE IF EXISTS ventas");
+        db.execSQL("DROP TABLE IF EXISTS clientes");
         onCreate(db);
     }
 }

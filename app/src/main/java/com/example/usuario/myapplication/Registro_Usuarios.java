@@ -36,6 +36,15 @@ public class Registro_Usuarios extends AppCompatActivity {
                 registrarUsuario();
             }
         });
+
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), MainActivity.class);
+                startActivity(i);
+
+            }
+        });
     }
 
     private void registrarUsuario() {
@@ -57,6 +66,7 @@ public class Registro_Usuarios extends AppCompatActivity {
 
         Intent i = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(i);
+
     }
 
 

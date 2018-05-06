@@ -83,7 +83,7 @@ public class DashBoard extends AppCompatActivity
 
         if (id == R.id.ventas) {
             // Handle the camera action
-            Intent i = new Intent(this,Ventas.class);
+            Intent i = new Intent(this,RegistroVentas.class);
             startActivity(i);
         } else if (id == R.id.registro) {
             Intent i = new Intent(this,Registro.class);

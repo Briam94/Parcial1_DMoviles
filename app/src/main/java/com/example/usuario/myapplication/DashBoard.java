@@ -89,6 +89,8 @@ public class DashBoard extends AppCompatActivity
             Intent i = new Intent(this,RegistrarClientes.class);
             startActivity(i);
         } else if (id == R.id.reportes) {
+            Intent i = new Intent(this,TipoBusqueda.class);
+            startActivity(i);
 
         }else if (id == R.id.cerrarsesion) {
 

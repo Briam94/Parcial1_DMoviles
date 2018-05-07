@@ -22,7 +22,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Registro_Usuarios" />
         <activity android:name=".RegistroVentas" />
-        <activity android:name=".RegistrarClientes"></activity>
+        <activity android:name=".RegistrarClientes" />
+        <activity
+            android:name=".ConsultaClientes"
+            android:exported="true" />
+        <activity android:name=".TipoBusqueda"></activity>
     </application>
 
 </manifest>

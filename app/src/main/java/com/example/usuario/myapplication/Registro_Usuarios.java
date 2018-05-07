@@ -56,7 +56,7 @@ public class Registro_Usuarios extends AppCompatActivity {
         ContentValues values = new ContentValues();
         values.put(Utilidades.CAMPO_ID,id.getText().toString());
         values.put(Utilidades.CAMPO_CORREO,correo.getText().toString());
-        values.put(Utilidades.CAMPO_CONTRASEÑA,contraseña.getText().toString());
+        values.put(Utilidades.CAMPO_CONTRASENA,contraseña.getText().toString());
 
         Long idResultante = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_ID,values);
 

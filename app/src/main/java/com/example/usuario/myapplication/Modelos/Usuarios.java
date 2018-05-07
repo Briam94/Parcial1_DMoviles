@@ -4,11 +4,20 @@ public class Usuarios {
 
     private Integer id;
     private String correo;
-    private String contraseña;
+    private String contrasena;
 
-    public Usuarios(String correo, String contraseña) {
+    public Usuarios(Integer id, String correo, String contrasena) {
+        this.id = id;
         this.correo = correo;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCorreo() {
@@ -19,11 +28,11 @@ public class Usuarios {
         this.correo = correo;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }

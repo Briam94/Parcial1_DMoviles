@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.usuario.myapplication.Conexion.Connect;
@@ -22,6 +23,8 @@ public class ReporteVentas extends AppCompatActivity {
     ArrayList<String> listaInformacion;
     ArrayList<Ventas> listaVentas;
 
+    EditText campoConsulta;
+
     Button botonConsulta;
 
     Connect conn;
@@ -32,6 +35,8 @@ public class ReporteVentas extends AppCompatActivity {
         setContentView(R.layout.activity_reporte_ventas);
 
         botonConsulta = findViewById(R.id.button);
+
+        campoConsulta = (EditText) findViewById(R.id.editText4);
 
         Connect conn = new Connect(getApplicationContext(),"db_ventas",null,1);
 
@@ -57,7 +62,7 @@ public class ReporteVentas extends AppCompatActivity {
 
         listaVentas = new ArrayList<Ventas>();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM " + Utilidades.TABLA_VENTA,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Utilidades.TABLA_VENTA + " where  idVentas='" + campoConsulta + "'",null);
 
         while (cursor.moveToNext()){
             venta = new Ventas();

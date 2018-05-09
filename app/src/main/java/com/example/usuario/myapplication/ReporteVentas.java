@@ -33,6 +33,12 @@ public class ReporteVentas extends AppCompatActivity {
 
         botonConsulta = findViewById(R.id.button);
 
+        Connect conn = new Connect(getApplicationContext(),"db_ventas",null,1);
+
+
+        listViewVentas = (ListView) findViewById(R.id.listViewVentas);
+
+
         botonConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,11 +46,8 @@ public class ReporteVentas extends AppCompatActivity {
             }
         });
 
-        listViewVentas = (ListView) findViewById(R.id.listViewVentas);
-
-        Connect conn = new Connect(getApplicationContext(),"db_ventas",null,1);
-
-
+        //ArrayAdapter adaptador = new ArrayAdapter (this,android.R.layout.simple_list_item_1,listaInformacion);
+        //listViewVentas.setAdapter(adaptador);
     }
 
     private void consultarListaPersonas(){
@@ -78,6 +81,5 @@ public class ReporteVentas extends AppCompatActivity {
         }
 
         ArrayAdapter adaptador = new ArrayAdapter(this,android.R.layout.simple_list_item_1,listaInformacion);
-        listViewVentas.setAdapter(adaptador);
     }
 }

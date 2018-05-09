@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnLogin;
     Button btnRegistro;
 
+    public static final String MyPREFERENCES = "MyPrefs" ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

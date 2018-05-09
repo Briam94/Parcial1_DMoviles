@@ -26,6 +26,7 @@ public class ReporteVentas extends AppCompatActivity {
     EditText campoConsulta;
 
     Button botonConsulta;
+    Button cancelarReporte;
 
     Connect conn;
 
@@ -35,6 +36,8 @@ public class ReporteVentas extends AppCompatActivity {
         setContentView(R.layout.activity_reporte_ventas);
 
         botonConsulta = findViewById(R.id.button);
+
+        cancelarReporte = findViewById(R.id.button2);
 
         campoConsulta = (EditText) findViewById(R.id.editText4);
 
@@ -53,6 +56,13 @@ public class ReporteVentas extends AppCompatActivity {
 
         //ArrayAdapter adaptador = new ArrayAdapter (this,android.R.layout.simple_list_item_1,listaInformacion);
         //listViewVentas.setAdapter(adaptador);
+
+        cancelarReporte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void consultarListaPersonas(){

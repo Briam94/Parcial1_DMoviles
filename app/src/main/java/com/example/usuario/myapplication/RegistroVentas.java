@@ -76,15 +76,15 @@ public class RegistroVentas extends AppCompatActivity {
     public void buscarCliente(){
         SQLiteDatabase db = conn.getReadableDatabase();
         String[] parametros = {cedulaBusqueda.getText().toString()};
-        String[] campos = {Utilidades.CAMPO_IDCLIENTE, Utilidades.CAMPO_NOMBRECLIENTE, Utilidades.CAMPO_CORREOCLIENTE,
-                Utilidades.CAMPO_TELEFONOCLIENTE, Utilidades.CAMPO_DIRECCIONCLIENTE};
+        String[] campos = {Utilidades.CAMPO_IDCLIENTE, Utilidades.CAMPO_NOMBRECLIENTE, Utilidades.CAMPO_CEDULACLIENTE,
+                Utilidades.CAMPO_CORREOCLIENTE,Utilidades.CAMPO_TELEFONOCLIENTE, Utilidades.CAMPO_DIRECCIONCLIENTE};
 
         try {
 
             Cursor cursor = db.query(Utilidades.TABLA_CLIENTE,campos,Utilidades.CAMPO_CEDULACLIENTE + "=?",
                     parametros,null,null,null);
             cursor.moveToFirst();
-            idVentas.setText(cursor.getString(0));
+            idVentas.setText(cursor.getString(2));
             cliente.setText(cursor.getString(1));
             cursor.close();
 

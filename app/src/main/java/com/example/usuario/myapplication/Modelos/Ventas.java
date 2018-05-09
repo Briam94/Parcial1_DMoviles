@@ -14,6 +14,10 @@ public class Ventas {
         this.precio = precio;
     }
 
+    public Ventas() {
+
+    }
+
     public Integer getIdVentas() {
         return idVentas;
     }

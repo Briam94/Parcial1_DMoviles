@@ -9,6 +9,7 @@ import android.widget.Button;
 public class TipoBusqueda extends AppCompatActivity {
 
     Button btnConsultarCliente;
+    Button btnReporteventas;
     Button btnCancelar;
 
     @Override
@@ -18,12 +19,12 @@ public class TipoBusqueda extends AppCompatActivity {
 
         btnConsultarCliente = (Button) findViewById(R.id.consultaCliente);
         btnCancelar = (Button) findViewById(R.id.botonVolverDashBoard);
+        btnReporteventas = (Button) findViewById(R.id.botonReporteVentas);
 
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(),DashBoard.class);
-                startActivity(i);
+                finish();
             }
         });
 
@@ -31,6 +32,14 @@ public class TipoBusqueda extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(),ConsultaClientes.class);
+                startActivity(i);
+            }
+        });
+
+        btnReporteventas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), ReporteVentas.class);
                 startActivity(i);
             }
         });

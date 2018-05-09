@@ -17,6 +17,7 @@ public class Connect  extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(Utilidades.CREAR_TABLA_USUARIO);
+        db.execSQL("insert into " + Utilidades.TABLA_USUARIO + " values ('123','admin@correo.com','admin')");
         db.execSQL(Utilidades.CREAR_TABLA_VENTAS);
         db.execSQL(Utilidades.CREAR_TABLA_CLIENTES);
 
@@ -25,6 +26,7 @@ public class Connect  extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS usuarios");
+        db.execSQL("insert into " + Utilidades.TABLA_USUARIO + " values ('123','admin@correo.com','admin')");
         db.execSQL("DROP TABLE IF EXISTS ventas");
         db.execSQL("DROP TABLE IF EXISTS clientes");
         onCreate(db);

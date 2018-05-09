@@ -42,8 +42,7 @@ public class RegistroVentas extends AppCompatActivity {
         btnCancelarVentas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), DashBoard.class);
-                startActivity(i);
+                finish();
             }
         });
     }

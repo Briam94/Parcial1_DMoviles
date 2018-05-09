@@ -45,9 +45,7 @@ public class RegistrarClientes extends AppCompatActivity {
         btnCancelarRegistroCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(),DashBoard.class);
-                startActivity(i);
-
+                finish();
             }
         });
 

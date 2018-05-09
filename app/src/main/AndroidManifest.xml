@@ -26,7 +26,8 @@
         <activity
             android:name=".ConsultaClientes"
             android:exported="true" />
-        <activity android:name=".TipoBusqueda"></activity>
+        <activity android:name=".TipoBusqueda" />
+        <activity android:name=".ReporteVentas"></activity>
     </application>
 
 </manifest>

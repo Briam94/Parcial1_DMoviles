@@ -11,12 +11,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.usuario.myapplication.Conexion.Connect;
+import com.example.usuario.myapplication.Modelos.MD5;
 import com.example.usuario.myapplication.Utilidades.Utilidades;
 
 public class Registro_Usuarios extends AppCompatActivity {
 
     EditText id, correo, contraseña;
     Button btnregistrar, btnCancelar;
+
+    MD5 cifrado = new MD5();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +43,7 @@ public class Registro_Usuarios extends AppCompatActivity {
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), MainActivity.class);
-                startActivity(i);
-
+                finish();
             }
         });
     }

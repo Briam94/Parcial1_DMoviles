@@ -1,17 +1,21 @@
 package com.example.usuario.myapplication;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.usuario.myapplication.Conexion.Connect;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText correo;
+    EditText contrasena;
     Button btnLogin;
     Button btnRegistro;
 
@@ -20,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        contrasena = findViewById(R.id.editText);
         correo = findViewById(R.id.editText2);
         btnLogin = findViewById(R.id.buttonIngresar);
 
@@ -32,9 +37,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String usuario = correo.getText().toString();
-                Intent intent = new Intent(v.getContext(),DashBoard.class);
-                startActivity(intent);
+
+                ingresar();
             }
         });
 
@@ -45,5 +49,33 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    public void ingresar(){
+
+        Connect conexion = new Connect(this,"db_usuarios",null,1);
+        SQLiteDatabase db = conexion.getWritableDatabase();
+
+        String usuario = correo.getText().toString();
+        String password = contrasena.getText().toString();
+
+        Cursor fila=db.rawQuery("select correo,contrasena from usuario where correo='" + usuario
+                        + "' and contrasena='" + password + "'",null);
+
+         if (fila.moveToNext()){
+             String usua = fila.getString(0);
+             String pas = fila.getString(1);
+             if (usuario.equals(usua) && password.equals(pas)){
+
+                 Intent intent = new Intent(getApplicationContext(),DashBoard.class);
+                 startActivity(intent);
+                 correo.setText("");
+                 contrasena.setText("");
+
+             }
+             else {
+                 Toast.makeText(getApplicationContext(),"Usuario o Contraseña incorrectos", Toast.LENGTH_SHORT).show();
+             }
+         }
     }
 }

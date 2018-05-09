@@ -15,6 +15,10 @@ public class Clientes {
         this.direccionCliente = direccionCliente;
     }
 
+    public Clientes() {
+
+    }
+
     public Integer getIdCliente() {
         return idCliente;
     }

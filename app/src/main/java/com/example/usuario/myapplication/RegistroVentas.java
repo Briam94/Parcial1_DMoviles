@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ public class RegistroVentas extends AppCompatActivity {
 
     EditText idVentas, cliente, producto, tiempo, precio;
     Button btnRegistrarVentas, btnCancelarVentas;
+
 
     EditText cedulaBusqueda;
     Button buscar;
@@ -43,6 +45,7 @@ public class RegistroVentas extends AppCompatActivity {
         tiempo = (EditText) findViewById(R.id.campoTiempo);
         precio = (EditText) findViewById(R.id.campoPrecio);
 
+
         cedulaBusqueda = (EditText) findViewById(R.id.editText3);
         buscar = (Button) findViewById(R.id.button2buscar);
 
@@ -61,6 +64,7 @@ public class RegistroVentas extends AppCompatActivity {
         btnRegistrarVentas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 registrarVentas();
             }
         });
@@ -96,6 +100,7 @@ public class RegistroVentas extends AppCompatActivity {
 
 
     public void registrarVentas(){
+
         Connect conn = new Connect(this,"db_ventas",null,1);
 
         SQLiteDatabase db = conn.getWritableDatabase();

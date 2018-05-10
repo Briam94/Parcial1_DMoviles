@@ -50,23 +50,31 @@ public class Registro_Usuarios extends AppCompatActivity {
 
     private void registrarUsuario() {
 
-        Connect conexion = new Connect(this,"db_usuarios",null,1);
+        if (id.getText().toString() == "" || correo.getText().toString() == "" || contraseña.getText().toString()==""){
+            finish();
+        }
+/*
+        id.getText().toString().trim();
+        correo.getText().toString().trim();
+        contraseña.getText().toString().trim();
+*/
+            Connect conexion = new Connect(this,"db_usuarios",null,1);
 
-        SQLiteDatabase db = conexion.getWritableDatabase();
+            SQLiteDatabase db = conexion.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put(Utilidades.CAMPO_ID,id.getText().toString());
-        values.put(Utilidades.CAMPO_CORREO,correo.getText().toString());
-        values.put(Utilidades.CAMPO_CONTRASENA,contraseña.getText().toString());
+            ContentValues values = new ContentValues();
+            values.put(Utilidades.CAMPO_ID,id.getText().toString());
+            values.put(Utilidades.CAMPO_CORREO,correo.getText().toString());
+            values.put(Utilidades.CAMPO_CONTRASENA,contraseña.getText().toString());
 
-        Long idResultante = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_ID,values);
+            Long idResultante = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_ID,values);
 
-        //Toast.makeText(getApplicationContext(), "Registro exitoso del usuario: " +  idResultante,Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(), "Registro exitoso",Toast.LENGTH_SHORT).show();
-        db.close();
+            //Toast.makeText(getApplicationContext(), "Registro exitoso del usuario: " +  idResultante,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Registro exitoso",Toast.LENGTH_SHORT).show();
+            db.close();
 
-        Intent i = new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(i);
+            Intent i = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
 
     }
 

@@ -29,6 +29,7 @@ public class ReporteVentas extends AppCompatActivity {
     Button cancelarReporte;
 
     Connect conn;
+    SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,8 @@ public class ReporteVentas extends AppCompatActivity {
 
         campoConsulta = (EditText) findViewById(R.id.editText4);
 
-        Connect conn = new Connect(getApplicationContext(),"db_ventas",null,1);
+        conn = new Connect(getApplicationContext(),"db_ventas",null,1);
+        db = conn.getWritableDatabase();
 
 
         listViewVentas = (ListView) findViewById(R.id.listViewVentas);
@@ -66,7 +68,7 @@ public class ReporteVentas extends AppCompatActivity {
     }
 
     private void consultarListaPersonas(){
-        SQLiteDatabase db = conn.getReadableDatabase();
+
 
         Ventas venta = null;
 
@@ -83,9 +85,17 @@ public class ReporteVentas extends AppCompatActivity {
             venta.setPrecio(cursor.getString(4));
 
             listaVentas.add(venta);
+
+            for (int i = 0; i < listaVentas.size(); i++){
+                listaInformacion.add(listaVentas.get(i).getIdVentas() + " - " + listaVentas.get(i).getCliente());
+                ArrayAdapter adaptador = new ArrayAdapter (this,android.R.layout.simple_list_item_1,listaInformacion);
+                listViewVentas.setAdapter(adaptador);
+            }
+
+
         }
 
-        obtenerLista();
+        //obtenerLista();
     }
 
     private void obtenerLista(){
@@ -95,6 +105,6 @@ public class ReporteVentas extends AppCompatActivity {
             listaInformacion.add(listaVentas.get(i).getIdVentas() + " - " + listaVentas.get(i).getCliente());
         }
 
-        ArrayAdapter adaptador = new ArrayAdapter(this,android.R.layout.simple_list_item_1,listaInformacion);
+        //ArrayAdapter adaptador = new ArrayAdapter(this,android.R.layout.simple_list_item_1,listaInformacion);
     }
 }

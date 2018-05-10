@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void ingresar(){
 
+
         Connect conexion = new Connect(this,"db_usuarios",null,1);
         SQLiteDatabase db = conexion.getWritableDatabase();
 
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor fila=db.rawQuery("select correo,contrasena from usuario where correo='" + usuario
                         + "' and contrasena='" + password + "'",null);
+
 
          if (fila.moveToNext()){
              String usua = fila.getString(0);
@@ -75,9 +77,10 @@ public class MainActivity extends AppCompatActivity {
                  contrasena.setText("");
 
              }
-             else {
-                 Toast.makeText(getApplicationContext(),"Usuario o Contraseña incorrectos", Toast.LENGTH_SHORT).show();
-             }
+
+
+         }else {
+             Toast.makeText(getApplicationContext(),"Usuario o Contraseña incorrectos", Toast.LENGTH_SHORT).show();
          }
     }
 }

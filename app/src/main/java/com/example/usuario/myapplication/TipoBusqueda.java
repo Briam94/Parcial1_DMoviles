@@ -24,7 +24,8 @@ public class TipoBusqueda extends AppCompatActivity {
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent i = new Intent(v.getContext(),DashBoard.class);
+                startActivity(i);
             }
         });
 

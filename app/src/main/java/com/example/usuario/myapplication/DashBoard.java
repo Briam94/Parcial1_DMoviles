@@ -96,8 +96,10 @@ public class DashBoard extends AppCompatActivity
 
         }else if (id == R.id.cerrarsesion) {
 
+            finish();
+            Intent i = new Intent(this,MainActivity.class);
+            startActivity(i);
             System.exit(0);
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
